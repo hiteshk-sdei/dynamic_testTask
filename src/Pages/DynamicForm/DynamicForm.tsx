@@ -15,10 +15,7 @@ import { object, string, number } from "yup";
 import { editUserDetails, getUserDetails } from "../../Redux/Slices";
 import Loader from "../../Components/Loading/Loader";
 import "./Style.css";
-import {
-  IGetUserProps,
-  IUsersDetails,
-} from "../../Components/Interface/Interface";
+import { IGetUserProps } from "../../Components/Interface/Interface";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 
 export const DynamicForm = () => {
@@ -33,7 +30,6 @@ export const DynamicForm = () => {
   const [initialValue, setInitialValue] = useState<any>({});
 
   const [userValidation, setUserValidation] = useState<any>({});
-  // let initialValue: any = {};
 
   useEffect(() => {
     dispatch(getUserDetails());
@@ -65,24 +61,13 @@ export const DynamicForm = () => {
 
         initialValue[element.fieldName] = element.value;
       });
-      // userValidation = object().shape({ ...obj });
       setUserValidation({ ...obj });
       setInitialValue({ ...initialValue });
     }
   }, [getUser]);
 
   const submitData = (data: any) => {
-    console.log(data);
-    const editData: IUsersDetails = {
-      firstName: data?.firstName,
-      lastName: data?.lastName,
-      emailAddress: data?.emailAddress,
-    };
-    data?.age && (editData.age = data?.age);
-    data?.gender && (editData.gender = data?.gender);
-    data?.testimonial && (editData.testimonial = data?.testimonial);
-    data?.randomString && (editData.randomString = data?.randomString);
-    dispatch(editUserDetails(editData));
+    dispatch(editUserDetails(data));
   };
 
   const formik = useFormik({
@@ -91,7 +76,6 @@ export const DynamicForm = () => {
     onSubmit: submitData,
     enableReinitialize: true,
   });
-  console.log(8888, formik.values);
 
   return (
     <>
