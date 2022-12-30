@@ -1,0 +1,31 @@
+.userFormWrapper {
+  margin: 30px 0;
+}
+.userFormWrapper .MuiFormControl-root {
+  margin-bottom: 20px;
+}
+h6.dynamicFormHeading {
+  margin-bottom: 40px;
+}
+.submitBtnWrapper button {
+  background-color: #673ab7;
+}
+.responseDataWrapper {
+  margin: 50px 0;
+}
+.responseDataWrapper .MuiTypography-body1 {
+  word-wrap: break-word;
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 0.875rem;
+  line-height: 1.43;
+  letter-spacing: 0.01071em;
+  margin: 20px 0;
+}
+.ErrorWrapper {
+  word-wrap: break-word;
+  color: red;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  letter-spacing: 0.01071em;
+  margin: 20px 0;
+}
